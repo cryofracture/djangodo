@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center">
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <p class="d-flex align-items-center justify-content-center"><a href="{% url 'logout' %}">Log Out</a></p>
+    {% else %}
+    <p class="d-flex align-items-center justify-content-center">You are not logged in</p>
+    <a href="{% url 'login' %}">Log In</a>
+    {% endif %}
+</div>
+{% endblock %}
